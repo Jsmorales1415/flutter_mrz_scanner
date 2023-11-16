@@ -27,13 +27,14 @@ class FotoapparatCamera constructor(
     private var mainExecutor = ContextCompat.getMainExecutor(context)
 
     val cameraView = CameraView(context)
-    val configuration = CameraConfiguration(frameProcessor = this::processFrame,
-        pictureResolution = {
-            last { it.width >= 800 }
-        },
-        previewResolution = {
-            last { it.width >= 800 }
-        })
+//    val configuration = CameraConfiguration(frameProcessor = this::processFrame,
+//        pictureResolution = {
+//            last { it.width >= 800 }
+//        },
+//        previewResolution = {
+//            last { it.width >= 800 }
+//        })
+    val configuration = CameraConfiguration(frameProcessor = this::processFrame)
     val fotoapparat = Fotoapparat(
         context = context,
         view = cameraView,
